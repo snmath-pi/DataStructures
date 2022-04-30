@@ -14,12 +14,12 @@ int main(){
 	}
 	cout<<"\n" ;
 	//Some Functions
-	cout << "\ngquiz.size() : " << dq.size();
-    	cout << "\ngquiz.max_size() : " << dq.max_size();
+	cout << "\ndq.size() : " << dq.size();
+    	cout << "\ndq.max_size() : " << dq.max_size();
  
-    	cout << "\ngquiz.at(2) : " << dq.at(2);
-    	cout << "\ngquiz.front() : " << dq.front();
-    	cout << "\ngquiz.back() : " << dq.back();
+    	cout << "\ndq.at(2) : " << dq.at(2);
+    	cout << "\ndq.front() : " << dq.front();
+    	cout << "\ndq.back() : " << dq.back();
 	cout<<"\n" ;
 	
 }
