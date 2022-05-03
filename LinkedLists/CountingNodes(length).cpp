@@ -53,7 +53,7 @@ int Count(struct Node*p){
 		p=p->next; 
 		cnt++ ;
 	}
-	cout<< cnt ;
+	return cnt ;
 }
 int main(){
 	int a[] = {1,2,3,4,5} ;
