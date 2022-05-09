@@ -9,3 +9,17 @@ Cannot be used for :
 2.Sorting data 
 3.Prefix Searching 
 (For all these AVL or RedBlack Trees are Used .)
+
+
+Applications of Hashing : 
+1. Dictionaries 
+2. Database Indexing
+3. Cryptography
+4. Cache
+5. Symbol Tables in Compilers and Interpretors 
+6. Routers
+7. Getting Data from DataBases
+8. .....Many More
+
+
+
