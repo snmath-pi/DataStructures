@@ -1,0 +1,2 @@
+1. Does not handle overflow and underflow .
+2. We need to define the capacity everytime initially , It's not dynamic .
