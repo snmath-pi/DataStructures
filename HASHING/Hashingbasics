@@ -1,0 +1,11 @@
+Mainly used for :
+1. Search 
+2. Insert 
+3. Delete 
+(It does all these operations in O(1) Time Complexity .
+
+Cannot be used for :
+1. Finding closest value to a key .
+2.Sorting data 
+3.Prefix Searching 
+(For all these AVL or RedBlack Trees are Used .)
