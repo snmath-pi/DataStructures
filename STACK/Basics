@@ -1,0 +1,29 @@
+Ex.
+i/p 
+--->(pseudocode)<---
+Stack created (s)
+s.push(15)
+s.push(20)
+s.push(35)
+print(s.peek()) 
+s.pop() ;
+print(s.size())
+s.push(5) 
+print(s.peek())
+print(s.empty())
+
+O/P
+STack: 35 20 15
+35
+20 15 (35 removed)
+2
+5  20 15
+5
+0(Gives Binary False And True)
+
+
+
+Some Conditions
+1. UnderFlow :  When pop() or peek() is used on an empty stack .
+2. OverFlow : When push() is called on a full stack .
+
