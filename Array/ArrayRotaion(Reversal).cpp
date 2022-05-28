@@ -1,32 +1,30 @@
-//O(n)
 #include<bits/stdc++.h>
-using namespace std; 
-void reverseii(int ar[] , int s  , int e ){
-    while(s<e){
-        int t = ar[s] ; 
-        ar[s] = ar[e] ;
-        ar[e] = t ;
-        s++ ;
-        e-- ;
-
-    }
+using namespace std ;
+int gcd(int a , int b) {
+	 return (b==0) ?a:gcd(b , a%b) ;
 }
-void reversearray(int ar[] , int d , int n ){
-    if(!d) 
-        return  ;
-    d%=n  ;
-    reverseii(ar,0,d-1) ;
-    reverseii(ar,d,n-1) ;
-    reverseii(ar,0,n-1) ;
+void print(int *a , int n ){
+	for(int i =0;i<n;++i) cout << a[i] << " " ;
+}
+void Reverse(int *a , int l , int r) {
+	while(l<r){
+		int temp  = a[l] ;
+		a[l] = a[r] ;
+		a[r] = temp ;
+		l++ ;
+		r-- ;
+	}
 
 }
-void printarray(int ar[] , int n ){
-    for(int i=0;i<n;++i)
-        cout<<ar[i] << ' '; 
+void Rotate(int *a , int d , int n){
+	Reverse(a , 0 , d-1 ) ;
+	Reverse(a , d , n-1 ) ;
+	Reverse(a , 0 , n-1 ) ;
 }
 int main(){
-    int ar[] = {1,2,3,4,5,5,7}; 
-    int n = sizeof(ar) / sizeof(ar[0] ) ; 
-    reversearray(ar,2,n) ;
-    printarray(ar,n) ; 
+	int a[] = {1 , 2 , 3 , 4 ,5 , 6 , 7} ;
+	int n = sizeof(a)/sizeof(a[0]) ;
+	Rotate(a , 2 , n) ;
+	print(a , n) ;
+
 }
