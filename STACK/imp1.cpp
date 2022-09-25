@@ -12,8 +12,12 @@ public:
 	bool isfull() ;
 	void push(int n);
 	int pop() ;
+	int topp() ;
 
 };
+int Stack::topp(){
+	return ar[top] ;
+}
 bool Stack::isempty(){
 	if(top == -1)
 		return true ;
@@ -46,5 +50,10 @@ int main(){
 	stack.push(3) ;
 	stack.push(5) ;
 	cout << stack.pop();
+	cout << "\n" ;
+	cout << stack.topp() ;
+	cout << "\n" ;
+	cout<< stack.pop() << "\n" << stack.pop() <<"\n" << stack.isempty() <<"\n" << stack.isfull()<<"\n" ;
+	cout << stack.pop() << "\n" << stack.isfull() << "\n" << stack.isempty()<<"\n";
 }
 
