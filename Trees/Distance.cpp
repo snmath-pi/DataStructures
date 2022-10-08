@@ -18,7 +18,7 @@ void InorderTrav(Node* root){
 }
 void ParentTrack(Node* root , unordered_map<Node*,Node*> &parent_track,Node*target){
 	//STORES POINTER FROMC HILD TO PARETN
-	if(!root) return ;
+	// if(!root) return ;
 	queue<Node*> q ;
 	q.push(root) ;
 	while(!q.empty()){
@@ -42,13 +42,14 @@ void Distance(Node* root , Node* target  , int k ){
 	unordered_map<Node* , Node*> parent_track ;
 	ParentTrack(root , parent_track , target) ;
 	map<Node* , bool> visited ;// to store visited nodes so we don't revisit
-	visited[root] = true ;
+	// visited[root] = true ;
 	queue<Node*> q ;
-	q.push(root);
+	q.push(target);
+	visited[target] = true ;
 	int curr_level = 0 ; // to store until we reach distance k
 	while(!q.empty()){
 		int size= q.size() ;
-		if(curr_level ++ == k) break;
+		if(curr_level++ == k) break;
 		for(int i = 0; i<size; i++){
 			Node* node = q.front() ;
 			q.pop() ;
