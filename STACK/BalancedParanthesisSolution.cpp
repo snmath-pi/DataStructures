@@ -33,3 +33,38 @@ int main(){
 
 
 }
+/*#include<bits/stdc++.h>
+using namespace std ;
+bool isBalanced(string s){
+	stack<char> st ;
+	
+	for(int i=0; i<s.size(); i++){
+		char c = s[i] ;
+		if(st.empty()){
+			st.push(c) ;
+		}
+		else if((st.top()== '(' && c== ')')  || (st.top()== '{' && c== '}') || (st.top() == '[' && c==']')) {
+			st.pop() ;
+		}
+		else {
+			st.push(c) ;
+		}
+	}
+	return st.empty()  ;
+}
+void solve(){
+	string s = "((()))" ;
+	cout << ((isBalanced(s))?"YES\n":"NO\n")  ;
+
+}
+int main(){
+	ios::sync_with_stdio(false) ;
+	cin.tie(0) ;
+	cout.tie(0) ;
+	int t = 1 ;
+	// cin >> t ;
+	while(t--){
+		solve() ;
+	}
+}
+*/
