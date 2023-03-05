@@ -49,3 +49,29 @@ struct unionfind{
     return res2;
   }
 };
+// YYcomp2
+/*struct DSU {
+    vector<int> par, sz;
+    DSU(int x) {
+        par.resize(x);
+        sz.resize(x);
+        for(int i=0; i<x; i++) {
+            par[i] = i;
+            sz[i] = 1;
+        }
+    }
+    int find(int y) {
+        if(y == par[y]) {return y;}
+        else par[y] = find(par[y]);
+    }
+    void unite(int a, int b) {
+        a = find(a), b = find(b);
+        if(a == b) {
+            return;
+        } 
+        if(a < b) swap(a, b);
+        par[b] = a;
+        sz[a] += sz[b];
+        
+    }
+};*/
