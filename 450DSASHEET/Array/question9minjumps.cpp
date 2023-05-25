@@ -59,7 +59,8 @@ int main() {
     cin >> n;
     vi a(n);
     rep(i, n) cin >> a[i];
-    if(a[0] == 0) cout << -1 << '\n';
+    if(a[0] == 0) {cout << -1 << '\n'; return 0;}
+    if(a[0] >= n-1) {cout << 1 << '\n'; return 0;}
     int mx = a[0], step = a[0], jump = 1;
     repn(i, n-1) {
         if(i == n-1) {
