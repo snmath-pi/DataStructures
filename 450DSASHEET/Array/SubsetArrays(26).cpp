@@ -57,7 +57,7 @@ string isSubsetN(int a1[], int a2[], int n, int m) {
   // if someone wanna do it with for loops
   /*
   for(int i=0, j = 0; i<n; i++) {
-      j += a[i] == a[j];
+      j += a1[i] == a2[j];
   }
    */
     return (j == m ? "Yes": "No");
