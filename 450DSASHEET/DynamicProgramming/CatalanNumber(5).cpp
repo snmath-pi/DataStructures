@@ -17,7 +17,7 @@ class Solution
     cpp_int findCatalan(int n) 
     {
         //code here
-        int64_t C[n + 1] = {0};
+        cpp_int C[n + 1] = {0};
         C[0] = 1, C[1] = 1;
         for(int i=2; i<=n; i++) {
             for(int j=0; j<i; j++) {
