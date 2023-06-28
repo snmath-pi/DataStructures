@@ -1,0 +1,18 @@
+#include <bits/stdc++.h> 
+int dfs(int n, vector<int> &a, vector<int> &dp) {
+    if(n == 0) return a[n];
+    if(n < 0) return 0;
+    if(dp[n] != -1) return dp[n];
+    int cur = dfs(n-1, a, dp);
+    int cur2 = dfs(n-2, a, dp) + a[n];
+    return dp[n] = max(cur, cur2);
+    
+}
+int maximumNonAdjacentSum(vector<int> &a){
+    // Write your code here.
+    int n = a.size();
+    vector<int> dp(n, -1);
+    dp[0] = a[0];
+    return dfs(n-1, a, dp);
+
+}
