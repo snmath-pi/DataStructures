@@ -118,21 +118,7 @@ template<typename T, typename V> void use_(map<T, V> mp) {
 }
  
 int t, n, k;
-vi dp(100010, 1e9);
-vi a(100010);
-int dfs(int n) {
-	if(n == 0) return 0;
-	if(dp[n] != 1e9) return dp[n];
 
-	int val = 1e9;
-	repn(i, k) {
-		if(n - i >= 0) {
-			int jmp =  dfs(n - i) + abs(a[n] - a[n-i]);
-			val = min(val, jmp);
-		}
-	}
-	return dp[n] = val;
-}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("error.txt", "w", stderr);
@@ -140,9 +126,18 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     
+    int n, k;
     cin >> n >> k;
+    vi a(n);
     rep(i, n) cin >> a[i];
+    vl dp(n, 1e9);
     dp[0] = 0;
-    cout << dfs(n-1);
+    rep(i, n) {
+    	repn(j, k) {
+    		if(i + j < n) dp[i + j] = min(dp[i + j], dp[i] + abs(a[i + j] - a[i]));
+    	}
+    }
+
+    cout << dp[n-1];
 
 }
