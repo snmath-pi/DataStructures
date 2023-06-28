@@ -118,7 +118,10 @@ template<typename T, typename V> void use_(map<T, V> mp) {
 }
  
 int t, n, k;
-
+/*
+iterative dp is bottom-up 
+we started form n = 0 and went up till the required number
+	*/
 int fib(int n) {
 	int dp[n + 1];
 	dp[0] = 0, dp[1] = 1;
