@@ -132,7 +132,7 @@ ll fin(vi &a, int s, int m, int e) {
 		}
 	}
 	while(i < m) temp[k++] = a[i++];
-	while(j <= n) temp[k++] = a[j++];
+	while(j <= e) temp[k++] = a[j++];
 	k = 0;
 	for(int i=s; i<=e; i++) a[i] = temp[k], k++;
 
