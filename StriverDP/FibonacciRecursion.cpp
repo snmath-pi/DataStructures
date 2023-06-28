@@ -121,8 +121,7 @@ int t, n, k;
 
 map<int, int> dp;
 int fib(int n) {
-	if(n == 1) return 0;
-	if(n <= 3) return 1;
+	if(n <= 1) return n;
 	if(dp[n]) return dp[n];
 
 	return dp[n] = fib(n-1) + fib(n-2);
