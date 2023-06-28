@@ -118,7 +118,9 @@ template<typename T, typename V> void use_(map<T, V> mp) {
 }
  
 int t, n, k;
-
+/*
+recursion is bascially top-down approach, as you can see here we started from n and went until we reached n = 0
+	*/
 map<int, int> dp;
 int fib(int n) {
 	if(n <= 1) return n;
