@@ -119,14 +119,6 @@ template<typename T, typename V> void use_(map<T, V> mp) {
  
 int t, n, k;
 
-int dfs(int i, int j, vector<vector<int>> &dp, string &a, string &b) {
-    if(i < 0 || j < 0) return 0;
-    if(dp[i][j] != -1) return dp[i][j];
-    if(a[i] == b[j]) {
-        return dp[i][j] = 1 + dfs(i-1, j-1, dp, a, b);
-    }
-    return dp[i][j] = max(dfs(i-1, j, dp, a, b), dfs(i, j-1, dp, a, b));
-}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("error.txt", "w", stderr);
@@ -136,9 +128,19 @@ int main() {
     string a, b;
     cin >> a >> b;
     int n = a.length(), m = b.length();
-    vector<vector<int>> dp(n, vector<int> (m, -1));
 
-    cout << dfs(n-1, m-1, dp, a, b);
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=m; j++) {
+            if(a[i-1] == b[j-1]) {
+                dp[i][j] = 1 + dp[i-1][j-1];
+            } else {
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+    }
+
+    cout << dp[n][m] << nl;
     
 
 }
