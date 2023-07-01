@@ -135,7 +135,7 @@ int main() {
     vl dp(tot + 1, 0), ndp(tot + 1, 0);
     if(a[0] == 0) dp[0] = 2;
     else dp[0] = 1;
-    if(a[0] != 0 && a[0] <= target) dp[a[0]] = 1;
+    if(a[0] != 0 && a[0] <= tot) dp[a[0]] = 1;
     const int mod = 1e9 + 7;
     rng(i, 1, n) {
         rep(j, tot + 1) {
