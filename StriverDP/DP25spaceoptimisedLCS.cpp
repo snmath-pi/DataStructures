@@ -130,11 +130,8 @@ int main() {
     int n = a.length(), m = b.length();
 
     vector<int> dp(m + 1, 0), ndp(m + 1, 0);
-    for(int i=1; i<=m; i++) {
-        if(a[0] == b[i-1]) dp[i] = 1;
-    }
-
-    for(int i=2; i<=n; i++) {
+   
+    for(int i=1; i<=n; i++) {
         for(int j=1; j<=m; j++) {
             if(a[i-1] == b[j-1]) {
                 ndp[j] = 1 + dp[j-1];
