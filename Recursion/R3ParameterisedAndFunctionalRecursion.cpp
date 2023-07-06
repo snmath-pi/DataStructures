@@ -130,6 +130,10 @@ int functional(int n) {
     if(n == 0) return 0;
     return n + functional(n-1);
 }
+int factorial(int n) {
+    if(n == 0) return 1;
+    return n * factorial(n-1);
+}
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("error.txt", "w", stderr);
@@ -141,5 +145,6 @@ int main() {
     parameterised(n);
     cout << nl;
     cout << functional(n) << nl;
+    cout << factorial(n) << nl;
 
 }
