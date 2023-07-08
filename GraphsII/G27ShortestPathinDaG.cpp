@@ -46,6 +46,9 @@ class Solution {
                 }
             }
         }
+        for(int i=0; i<N; i++) {
+            if(dis[i] == 1e9 + 7) dis[i] = -1;
+        }
         return dis;
     }
 };
