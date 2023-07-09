@@ -13,22 +13,7 @@ public:
     }
 };
 
-void inorder(Node* root) {
-    if(root->left) inorder(root->left);
-    cout << root->data << ' ';
-    if(root->right) inorder(root->right);
-}
-void preorder(Node* root) {
-    cout << root->data << ' ';
-    if(root->left) preorder(root->left);
-    if(root->right) preorder(root->right);
-}
 
-void postorder(Node* root) {
-    if(root->left) postorder(root->left);
-    if(root->right) postorder(root->right);
-    cout << root->data << ' ';
-}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -42,10 +27,25 @@ int main() {
 
     queue<Node*> q;
     q.push(root);
+    vector<vector<int>> res;
     while(!q.empty()) {
-        Node* temp = q.front(); q.pop();
-        cout << temp->data << ' ';
-        if(temp->left) q.push(temp->left);
-        if(temp->right) q.push(temp->right);
+        int sz = q.size();
+        vector<int> level;
+        for(int i=0; i<sz; i++) {
+            Node* temp = q.front(); q.pop();
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+            level.push_back(temp->data);
+        }
+        res.push_back(level);
+    }
+    int level = 0;
+    for(auto &x: res) {
+        cout << level++ << ": ";
+        for(auto &y: x) {
+            cout << y << ' ';
+        }
+
+        cout << '\n';
     }
 }
