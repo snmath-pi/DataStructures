@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int findTheCity(int n, vector<vector<int>>& edges, int dis) {
+        vector<vector<int>> g(n, vector<int> (n, 1e9));
+        for(auto &x: edges) {
+            g[x[0]][x[1]] = x[2];
+            g[x[1]][x[0]] = x[2];
+        }
+        for(int i=0; i<n; i++) g[i][i] = 0;
+        for(int k=0; k<n; k++) {
+            for(int i=0; i<n; i++) {
+                for(int j=0; j<n; j++) {
+                    g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+                }
+            }
+        }
+        int mn = 1e9;
+        for(int i=0; i<n; i++) {
+            int cnt = 0;
+            for(int j=0; j<n; j++) {
+                if(i!=j) {
+                    if(g[i][j] <= dis) cnt++;
+                }
+            }
+            mn = min(mn, cnt);
+        }
+        int ans;
+        for(int i=0; i<n; i++) {
+            int cnt = 0;
+            for(int j=0; j<n; j++) {
+                if(i!=j) {
+                    if(g[i][j] <= dis) cnt++;
+                }
+            }
+            if(cnt == mn) ans = i;
+        }
+        return ans;
+
+    }
+};
