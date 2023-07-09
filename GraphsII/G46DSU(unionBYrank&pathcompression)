@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+class dsu {
+    vector<int> rank, parent;
+public:
+    dsu(int n) {
+        rank.resize(n + 1, 0);
+        parent.resize(n + 1);
+        for(int i=0; i<=n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    int find(int x) {
+        return parent[x] = (parent[x] == x ? x : find(parent[x]));
+    }
+
+    void unionByRank(int x, int y) {
+        x = find(x);
+        y = find(y);
+        if(x == y) return;
+        if(rank[x] < rank[y]) {
+            parent[x] = parent[y];
+        } else if(rank[y] < rank[x]) {
+            parent[y] = parent[x];
+        }
+        else {
+            parent[y] = parent[x];
+            rank[x]++;
+        }
+    }
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    dsu d(7);
+    d.unionByRank(1, 2);
+    d.unionByRank(2, 3);
+    d.unionByRank(4, 5);
+    d.unionByRank(6, 7);
+    d.unionByRank(5, 6);
+    cout << (d.find(3) == d.find(7) ? "Same": "No") << '\n';
+    d.unionByRank(3, 7);
+    cout << (d.find(3) == d.find(7) ? "Same": "No") << '\n';
+
+}
