@@ -14,27 +14,18 @@ public:
                 }
             }
         }
-        int mn = 1e9;
+        int city = -1, cnt = n;
         for(int i=0; i<n; i++) {
-            int cnt = 0;
+            int cur = 0;
             for(int j=0; j<n; j++) {
-                if(i!=j) {
-                    if(g[i][j] <= dis) cnt++;
-                }
+                if(i!=j && g[i][j] <= dis) cur++;
             }
-            mn = min(mn, cnt);
-        }
-        int ans;
-        for(int i=0; i<n; i++) {
-            int cnt = 0;
-            for(int j=0; j<n; j++) {
-                if(i!=j) {
-                    if(g[i][j] <= dis) cnt++;
-                }
+            if(cur <= cnt) {
+                city = i;
+                cnt = cur;
             }
-            if(cnt == mn) ans = i;
         }
-        return ans;
+        return city;
 
     }
 };
