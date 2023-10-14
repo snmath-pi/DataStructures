@@ -150,27 +150,27 @@ int main() {
 #ifndef ONLINE_JUDGE
     freopen("error.txt", "w", stderr);
 #endif
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cin >> n;
-    vvi g(n);
-    rep(i, n-1) {
-    	int u, v; cin >> u >> v;
-    	g[--u].pb(--v); g[v].pb(u);
-    }
-
-    // how to find centroid
-    vi dp(n, 1);
-    function<int(int, int)> dfs = [&](int u, int p) {
-    	for(auto &v: g[u]) {
-    		if(v!=p) {
-    			dp[u] += dfs(v, u);
-    		}
-    	}
-    	return dp[u];
-    };
-    dfs(0, -1);
-    debug(dp)
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cin >> n;
+	vvi g(n);
+	rep(i, n-1) {
+	int u, v; cin >> u >> v;
+	g[--u].pb(--v); g[v].pb(u);
+	}
+	
+	// how to find centroid
+	vi dp(n, 1);
+	function<int(int, int)> dfs = [&](int u, int p) {
+	for(auto &v: g[u]) {
+		if(v!=p) {
+			dp[u] += dfs(v, u);
+		}
+	}
+	return dp[u];
+	};
+	dfs(0, -1);
+	debug(dp)
 
 	function<int(int, int)> centroid = [&](int u, int p) {
 		for(auto &v: g[u]) {
@@ -180,7 +180,7 @@ int main() {
 		}
 		return u;
 	};
-
+	
 	cout << centroid(0, -1) + 1 << nl;
     
 
