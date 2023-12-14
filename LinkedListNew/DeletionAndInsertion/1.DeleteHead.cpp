@@ -26,6 +26,8 @@ public:
 
 Node * deleteHead(Node *head) {
     // Write your code here.
+    Node* temp = head;
     head = head->next;
+    delete(temp);
     return head;
 }
